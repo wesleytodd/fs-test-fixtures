@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "description": "Helper for writing filesystem fixtures",
   "main": "index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
   "type": "commonjs",
   "keywords": [
     "test",
