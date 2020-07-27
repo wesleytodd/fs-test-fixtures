@@ -4,7 +4,7 @@
   "description": "Helper for writing filesystem fixtures",
   "main": "index.js",
   "exports": {
-    ".": "./lib/index.js",
+    ".": "./index.js",
     "./package.json": "./package.json"
   },
   "type": "commonjs",
