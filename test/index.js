@@ -3,6 +3,7 @@ const { suite, test } = require('mocha')
 const path = require('path')
 const assert = require('assert')
 const fs = require('fs-extra')
+const loggerr = require('loggerr')
 const pkg = require('../package.json')
 const fix = require('..')
 
@@ -35,13 +36,14 @@ suite(pkg.name, () => {
   test('configure fixture and tmp dirs', async () => {
     const f = fix({
       fixtures: path.join(__dirname, 'fake'),
-      tmp: path.join(__dirname, '_tmp')
+      tmp: path.join(__dirname, '_tmp'),
+      log: loggerr({ formatter: 'cli', level: 'info' }).info
     })
     assert.strictEqual(f.FIX, path.join(__dirname, 'fake'))
     assert.strictEqual(f.TMP, path.join(__dirname, '_tmp'))
 
     // Setup an fixture with file
-    assert.rejects(f.setup('testfixture'))
+    await assert.rejects(f.setup('testfixture'))
 
     // Teardown
     await f.teardown()
