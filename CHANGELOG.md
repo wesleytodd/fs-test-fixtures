@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/wesleytodd/fs-test-fixtures/compare/v0.1.2...v0.1.3) (2020-07-27)
+
+
+### Bug Fixes
+
+* broken exports ([65bc252](https://github.com/wesleytodd/fs-test-fixtures/commit/65bc252c5104c347a3babae7aa79e9ab1e72e1f2))
+
 ### [0.1.2](https://github.com/wesleytodd/fs-test-fixtures/compare/v0.1.1...v0.1.2) (2020-07-27)
 
 
