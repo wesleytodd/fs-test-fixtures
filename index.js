@@ -32,7 +32,7 @@ module.exports = (opts = {}) => {
     teardown: async function teardown () {
       try {
         log('Tearing down fixtures')
-        await fs.rmdir(TMP, { recursive: true })
+        await fs.remove(TMP)
       } catch (e) {
         // Ignore errors removing if it doesnt exist
         if (e.code !== 'ENOENT') {
