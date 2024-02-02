@@ -16,10 +16,7 @@
     "mocks"
   ],
   "scripts": {
-    "test": "semistandard && mocha",
-    "postpublish": "git push origin && git push origin --tags",
-    "prebump": "npm t",
-    "release": "standard-version && npm publish"
+    "test": "semistandard && mocha"
   },
   "author": "Wes Todd <wes@wesleytodd.com>",
   "license": "ISC",
@@ -33,7 +30,6 @@
   "devDependencies": {
     "loggerr": "^2.1.0",
     "mocha": "^10.2.0",
-    "semistandard": "^17.0.0",
-    "standard-version": "^8.0.2"
+    "semistandard": "^17.0.0"
   }
 }
