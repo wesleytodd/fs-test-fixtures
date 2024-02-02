@@ -53,4 +53,18 @@ suite(pkg.name, () => {
     await f.teardown();
     assert.rejects(fs.access(f.TMP));
   });
+
+  test('configure multiple tmp directories based on test name', async function () {
+    const f = await fix({
+      testName: this.test.title
+    }, 'testfixture');
+    assert.strictEqual(f.TMP, path.join(__dirname, 'tmp-configure-multiple-tmp-directories-based-on-test-name'));
+
+    const f2 = fix();
+    assert.strictEqual(f2.TMP, path.join(__dirname, 'tmp'));
+    await f2.setup('testfixture');
+
+    await f.teardown();
+    await f2.teardown();
+  });
 });
