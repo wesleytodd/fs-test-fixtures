@@ -16,10 +16,9 @@
     "mocks"
   ],
   "scripts": {
-    "test": "standard && mocha",
-    "postpublish": "git push origin && git push origin --tags",
-    "prebump": "npm t",
-    "release": "standard-version && npm publish"
+    "test": "mocha",
+    "lint": "semistandard",
+    "lint:fix": "semistandard --fix"
   },
   "author": "Wes Todd <wes@wesleytodd.com>",
   "license": "ISC",
@@ -27,13 +26,9 @@
     "type": "git",
     "url": "git@github.com:wesleytodd/fs-test-fixtures.git"
   },
-  "dependencies": {
-    "fs-extra": "^9.0.1"
-  },
   "devDependencies": {
-    "loggerr": "^2.1.0",
-    "mocha": "^8.0.1",
-    "standard": "^14.3.4",
-    "standard-version": "^8.0.2"
+    "loggerr": "^3.3.0",
+    "mocha": "^10.2.0",
+    "semistandard": "^17.0.0"
   }
 }
