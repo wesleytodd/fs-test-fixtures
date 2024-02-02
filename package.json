@@ -16,7 +16,7 @@
     "mocks"
   ],
   "scripts": {
-    "test": "standard && mocha",
+    "test": "semistandard && mocha",
     "postpublish": "git push origin && git push origin --tags",
     "prebump": "npm t",
     "release": "standard-version && npm publish"
@@ -33,7 +33,7 @@
   "devDependencies": {
     "loggerr": "^2.1.0",
     "mocha": "^8.0.1",
-    "standard": "^14.3.4",
+    "semistandard": "^17.0.0",
     "standard-version": "^8.0.2"
   }
 }
