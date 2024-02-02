@@ -2,7 +2,7 @@
 const { suite, test } = require('mocha');
 const path = require('path');
 const assert = require('assert');
-const fs = require('fs-extra');
+const fs = require('node:fs/promises');
 const loggerr = require('loggerr');
 const pkg = require('../package.json');
 const fix = require('..');
@@ -19,18 +19,22 @@ suite(pkg.name, () => {
 
     // Setup an empty directory
     await f.setup();
-    assert.strictEqual(await fs.pathExists(f.TMP), true);
+    assert.strictEqual(await fs.access(f.TMP), undefined);
     assert.rejects(fs.readFile(path.join(f.TMP, 'package.json')));
 
     // Setup an fixture with file
     await f.setup('testfixture');
-    assert.strictEqual(await fs.pathExists(f.TMP), true);
-    assert.doesNotReject(fs.readJSON(path.join(f.TMP, 'package.json')));
+    assert.strictEqual(await fs.access(f.TMP), undefined);
+    assert.doesNotReject(async () => {
+      JSON.parse(await fs.readFile(path.join(f.TMP, 'package.json')));
+    });
 
     // Teardown
     await f.teardown();
-    assert.strictEqual(await fs.pathExists(f.TMP), false);
-    assert.rejects(fs.readJSON(path.join(f.TMP, 'package.json')));
+    assert.rejects(fs.access(f.TMP));
+    assert.rejects(async () => {
+      JSON.parse(await fs.readFile(path.join(f.TMP, 'package.json')));
+    });
   });
 
   test('configure fixture and tmp dirs', async () => {
@@ -47,6 +51,6 @@ suite(pkg.name, () => {
 
     // Teardown
     await f.teardown();
-    assert.strictEqual(await fs.pathExists(f.TMP), false);
+    assert.rejects(fs.access(f.TMP));
   });
 });

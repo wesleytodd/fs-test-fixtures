@@ -1,5 +1,5 @@
 'use strict';
-const fs = require('fs-extra');
+const fs = require('node:fs/promises');
 const path = require('path');
 
 module.exports = (opts = {}) => {
@@ -26,13 +26,13 @@ module.exports = (opts = {}) => {
       log(`Setting up fixture: ${name || '<empty>'}`);
       await fs.mkdir(TMP, { recursive: true });
       if (name) {
-        await fs.copy(path.join(FIX, name), TMP);
+        await fs.cp(path.join(FIX, name), TMP, { recursive: true });
       }
     },
     teardown: async function teardown () {
       try {
         log('Tearing down fixtures');
-        await fs.remove(TMP);
+        await fs.rm(TMP, { recursive: true });
       } catch (e) {
         // Ignore errors removing if it doesnt exist
         if (e.code !== 'ENOENT') {

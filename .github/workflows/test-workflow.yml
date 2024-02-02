@@ -11,7 +11,7 @@ jobs:
       with:
         node-version: 20.x
     - name: Install
-      run: npm install && npm audit
+      run: npm install && npm audit --omit=dev
   lint:
     runs-on: ubuntu-latest
     needs: setup

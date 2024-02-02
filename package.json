@@ -24,9 +24,6 @@
     "type": "git",
     "url": "git@github.com:wesleytodd/fs-test-fixtures.git"
   },
-  "dependencies": {
-    "fs-extra": "^9.0.1"
-  },
   "devDependencies": {
     "loggerr": "^3.3.0",
     "mocha": "^10.2.0",
