@@ -16,7 +16,9 @@
     "mocks"
   ],
   "scripts": {
-    "test": "semistandard && mocha"
+    "test": "mocha",
+    "lint": "semistandard",
+    "lint:fix": "semistandard --fix"
   },
   "author": "Wes Todd <wes@wesleytodd.com>",
   "license": "ISC",
