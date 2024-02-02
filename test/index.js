@@ -37,7 +37,7 @@ suite(pkg.name, () => {
     const f = fix({
       fixtures: path.join(__dirname, 'fake'),
       tmp: path.join(__dirname, '_tmp'),
-      log: loggerr({ formatter: 'cli', level: 'info' }).info
+      log: loggerr.info
     });
     assert.strictEqual(f.FIX, path.join(__dirname, 'fake'));
     assert.strictEqual(f.TMP, path.join(__dirname, '_tmp'));

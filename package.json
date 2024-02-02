@@ -28,7 +28,7 @@
     "fs-extra": "^9.0.1"
   },
   "devDependencies": {
-    "loggerr": "^2.1.0",
+    "loggerr": "^3.3.0",
     "mocha": "^10.2.0",
     "semistandard": "^17.0.0"
   }
